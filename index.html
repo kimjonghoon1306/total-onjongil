@@ -97,6 +97,11 @@
   .nav-cta{font-weight:700;font-size:14.5px;background:var(--ink);color:var(--bg);
     padding:10px 18px;border-radius:999px;transition:.2s;white-space:nowrap}
   .nav-cta:hover{transform:translateY(-1px)}
+  .nav-portfolio{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14px;
+    color:var(--ink);padding:9px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);transition:.2s;white-space:nowrap}
+  .nav-portfolio:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .nav-portfolio svg{width:14px;height:14px;opacity:.7}
   .theme-btn{width:42px;height:42px;border-radius:999px;border:1px solid var(--line);
     background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;
     transition:.2s;flex:0 0 auto}
@@ -342,6 +347,9 @@
     .logo .mark{width:28px;height:28px}
     .nav-cta{padding:9px 14px;font-size:13.5px}
     .theme-btn{width:40px;height:40px}
+    .nav-portfolio{padding:9px 11px}
+    .nav-portfolio span{display:none}
+    .nav-right{gap:7px}
     .row2{grid-template-columns:1fr}
     .form-card{padding:26px 20px;border-radius:20px}
     .prob{padding:46px 0;border-radius:20px}
@@ -355,10 +363,25 @@
     .float .mail{padding:14px;border-radius:50%}
     .float{right:14px;bottom:14px}
     .h2{font-size:clamp(24px,7vw,32px)}
+    .custom-in{padding:34px 22px;border-radius:20px}
+    .feat{padding:24px}
+    .prob-card{padding:22px}
+    .faq-q{font-size:16px;padding:18px 0}
+    .faq-a p{font-size:14.5px}
+    .foot-in{flex-direction:column;gap:18px}
+    .foot-links{gap:18px}
+    .step{padding:4px 0}
+    .stat{padding:24px 12px}
+    .promo video{max-height:72vh}
+    .lead br{display:none}
   }
   @media(max-width:380px){
-    .hero h1{font-size:30px}
+    .hero h1{font-size:29px}
     .hero h1 .hl{white-space:normal}
+    .logo{font-size:15px;gap:8px}
+    .nav-cta{padding:8px 12px;font-size:13px}
+    .nav-portfolio{padding:8px 10px}
+    .scene .big,.big{font-size:30px}
   }
   @media(prefers-reduced-motion:reduce){
     .reveal{transition:none;opacity:1;transform:none}
@@ -380,6 +403,9 @@
       온종일 프로젝트
     </a>
     <div class="nav-right">
+      <a href="https://www.온종일.com" target="_blank" rel="noopener" class="nav-portfolio"><span>본사·포트폴리오</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
       <button class="theme-btn" id="themeBtn" aria-label="다크/라이트 전환">
         <svg class="sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <svg class="moon" viewBox="0 0 24 24" fill="none"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -642,6 +668,7 @@
       <a href="#features">기능</a>
       <a href="#signup">사전신청</a>
       <a href="#" id="footMail">문의하기</a>
+      <a href="https://www.온종일.com" target="_blank" rel="noopener">본사·포트폴리오 ↗</a>
     </div>
   </div>
   <div class="wrap"><div class="copy">© 2026 온종일 프로젝트. All rights reserved.</div></div>
