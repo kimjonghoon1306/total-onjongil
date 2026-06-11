@@ -40,21 +40,30 @@
     --shadow:0 24px 60px -22px rgba(20,20,30,.20);
     --chip-bg:#ffffff;
   }
-  /* DARK */
+  /* DARK — 새까맣지 않게 딥 인디고/바이올렛 톤 + 색감 */
   :root[data-theme="dark"]{
-    --bg:#0e0e13;
-    --bg-soft:#15151d;
-    --surface:#181820;
-    --invert:#08080c;
+    --bg:#191428;
+    --bg-soft:#211b38;
+    --surface:#271f42;
+    --invert:#130f24;
     --invert-ink:#ffffff;
-    --invert-ink-2:#b7b7c5;
-    --ink:#f3f3f7;
-    --ink-2:#d3d3dd;
-    --muted:#9a9aa8;
-    --line:#26262f;
-    --line-2:#2c2c36;
-    --shadow:0 24px 60px -22px rgba(0,0,0,.6);
-    --chip-bg:#1c1c25;
+    --invert-ink-2:#c6bee0;
+    --ink:#f5f2fc;
+    --ink-2:#dcd5f0;
+    --muted:#a89fc6;
+    --line:#382f59;
+    --line-2:#413668;
+    --shadow:0 24px 60px -22px rgba(0,0,0,.5);
+    --chip-bg:#261f40;
+  }
+  /* 다크일 때 전체에 은은한 컬러 워시 */
+  :root[data-theme="dark"] body{
+    background:
+      radial-gradient(900px 620px at 100% -8%, color-mix(in srgb,var(--pink) 12%,transparent), transparent 58%),
+      radial-gradient(880px 600px at 0% 18%, color-mix(in srgb,var(--green) 10%,transparent), transparent 55%),
+      radial-gradient(760px 600px at 60% 100%, color-mix(in srgb,var(--gold) 9%,transparent), transparent 60%),
+      var(--bg);
+    background-attachment:fixed;
   }
 
   *{margin:0;padding:0;box-sizing:border-box}
@@ -196,6 +205,20 @@
     background:var(--surface);border:1px solid var(--line)}
   .stat .big{font-size:clamp(30px,5vw,48px);font-weight:800;letter-spacing:-.04em}
   .stat .lab{color:var(--muted);font-weight:600;font-size:14.5px;margin-top:4px}
+
+  /* ============ CUSTOM / 상담 ============ */
+  .custom{background:var(--grad);border-radius:26px;padding:2px;box-shadow:var(--shadow)}
+  .custom-in{background:var(--surface);border-radius:24px;padding:50px 44px;text-align:center;position:relative;overflow:hidden}
+  .custom-in:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6;
+    background:radial-gradient(440px 220px at 88% 0%, color-mix(in srgb,var(--pink) 16%,transparent),transparent 60%),
+              radial-gradient(440px 220px at 6% 100%, color-mix(in srgb,var(--green) 14%,transparent),transparent 60%)}
+  .custom-in>*{position:relative}
+  .custom-in h2{color:var(--ink)}
+  .custom-in p{max-width:640px;margin:13px auto 26px;color:var(--muted);font-size:16.5px;font-weight:500}
+  .custom-in p b{color:var(--ink)}
+  .price-pill{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;
+    color:var(--ink-2);background:var(--bg);border:1px solid var(--line);padding:8px 16px;border-radius:999px;margin-bottom:6px}
+  .price-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--grad)}
 
   /* ============ SIGNUP / FORM ============ */
   .signup{position:relative;padding:96px 0;overflow:hidden}
@@ -466,6 +489,26 @@
   </div>
 </section>
 
+<!-- CUSTOM / 상담 -->
+<section class="block" id="custom">
+  <div class="wrap">
+    <div class="custom reveal">
+      <div class="custom-in">
+        <span class="price-pill"><span class="dot"></span>회사 맞춤 제작 · 별도 견적</span>
+        <div class="eyebrow o" style="margin-top:6px">우리 회사에 딱 맞게</div>
+        <h2 class="h2">회사 컨셉에 맞춰<br>전용으로 세팅해 드립니다</h2>
+        <p>온종일 프로젝트는 회사마다 운영 방식과 컨셉이 다르기 때문에,
+          설정값과 화면을 <b>각 회사에 맞춰 별도로 제작</b>합니다.
+          그래서 구성에 따라 <b>일정 비용</b>이 발생합니다.
+          우리 회사에 맞는 구성과 <b>정확한 견적은 상담을 통해</b> 안내해 드립니다.</p>
+        <a class="btn-primary" id="customConsult" href="#">상담으로 견적 문의하기
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SIGNUP -->
 <section class="signup" id="signup">
   <div class="wrap">
@@ -534,7 +577,7 @@
       <div class="faq-item reveal"><button class="faq-q" aria-expanded="false">성과는 어떻게 확인하나요?<span class="pm">+</span></button>
         <div class="faq-a"><p>매출·재방문·객단가 등 핵심 지표를 실시간 그래프와 리포트로 보여드립니다. 감이 아니라 숫자로 운영하실 수 있습니다.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q" aria-expanded="false">비용은 얼마인가요?<span class="pm">+</span></button>
-        <div class="faq-a"><p>사전신청자에게는 우선 오픈과 함께 초기 혜택을 제공해 드립니다. 자세한 요금은 신청 후 담당자가 업종에 맞춰 안내드립니다.</p></div></div>
+        <div class="faq-a"><p>온종일 프로젝트는 회사 컨셉과 운영 방식에 맞춰 설정값·화면을 별도로 제작하기 때문에, 구성에 따라 비용이 달라집니다. 우리 회사에 맞는 정확한 견적은 <b>상담을 통해</b> 안내해 드리니 편하게 문의해 주세요. 사전신청자에게는 우선 오픈 혜택도 함께 제공됩니다.</p></div></div>
     </div>
   </div>
 </section>
@@ -672,6 +715,30 @@ ${memo}
   }
   document.getElementById('floatMail').addEventListener('click',openInquiry);
   document.getElementById('footMail').addEventListener('click',openInquiry);
+
+  // '상담으로 견적 문의' → 맞춤제작 상담 메일 (제목에 항상 프로젝트 소제목)
+  document.getElementById('customConsult').addEventListener('click',(e)=>{
+    e.preventDefault();
+    const subject=`[${PROJECT}] 맞춤제작 상담·견적 문의`;
+    const body=
+`────────────────────
+■ ${PROJECT} 맞춤제작 상담·견적 문의
+────────────────────
+
+· 회사명:
+· 업종:
+· 담당자 성함:
+· 연락처:
+
+· 회사 컨셉 / 원하는 구성:
+
+
+· 예상 사용 규모(회원 수 등):
+
+────────────────────
+(회사 컨셉에 맞춘 구성·견적을 안내해 드립니다.)`;
+    window.location.href=mailtoURL(subject,body);
+  });
 </script>
 </body>
 </html>
